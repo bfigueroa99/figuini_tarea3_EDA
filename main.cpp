@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <sstream>
+#include <iterator>
+
 #include "include/trees/tree.hpp"
 #include "include/trees/treeList.hpp"
 #include "include/trees/treeListNode.hpp"
@@ -12,7 +16,7 @@ void mkfile(string val, string val_parent, trees::Tree *ptr);
 void cd();
 void ls(trees::TreeNode* current);
 void rm();
-void treeT(trees::Tree *ptr);
+void treeT(trees::Tree *ptr, trees::TreeNode *current);
 void find();
 void exit();
 
@@ -22,26 +26,57 @@ int main(int argc, char* argv[]){
     tree->setRoot(new trees::TreeNode("/"));
     
 
-    // trees::TreeNode* currentPtr = tree->getRoot();
+    trees::TreeNode* currentPtr = tree->getRoot();
+    cout << "$TreeSO" << endl << "¡Bienvenido a TreeSO!" << endl << "¡Autores:  Benjamin Figueroa y Stefano Romanini!\n";
 
-    mkdir("caca", "/", tree);
-    mkdir("a", "caca", tree);
-    mkdir("x", "caca", tree);
-    mkdir("y", "caca", tree);
-    mkdir("c", "/", tree);
-    mkdir("d", "c", tree);
+    while(true)
+    {
+        string input = "";
+        cout << currentPtr->getData() << "#";
+        
+        if(getline(cin, input) && !input.empty())
+        {
+            stringstream ss(input);
+            vector<string> wordList {istream_iterator<string>(ss), istream_iterator<string>()};
 
-    mkfile("b", "a", tree);
-    mkfile("l", "caca", tree);
-    mkfile("m", "caca", tree);
-    mkfile("e", "d", tree);
-
-    trees::TreeNode* currentPtr = tree->find("caca");
-
-    tree->traverse_rec(currentPtr, 0);
-
-    // treeT(tree);
-    ls(currentPtr);
+            if(wordList[0] == "mkdir")
+            {
+                mkdir(wordList[1], currentPtr->getData(), tree);
+            }
+            else if(wordList[0] == "mkfile")
+            {
+                mkfile(wordList[2], currentPtr->getData(), tree);
+            }
+            else if(wordList[0] == "cd")
+            {
+    
+            }
+            else if(wordList[0] == "ls")
+            {
+                ls(currentPtr);
+            }
+            else if(wordList[0] == "rm")
+            {
+    
+            }
+            else if(wordList[0] == "tree")
+            {
+                treeT(tree, currentPtr);
+            }
+            else if(wordList[0] == "find")
+            {
+    
+            }
+            else if(wordList[0] == "exit")
+            {
+                break;
+            }
+            else
+            {
+                cout << "Este comando no existe...\n";
+            }
+        }
+    }
 
     return 0;
 }
@@ -86,9 +121,9 @@ void rm()
 
 }
 
-void treeT(trees::Tree *ptr)
+void treeT(trees::Tree *ptr, trees::TreeNode *current)
 {
-    ptr->traverse();
+    ptr->traverse_rec(current, 0);
 }
 
 void find()
