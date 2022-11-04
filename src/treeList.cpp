@@ -7,6 +7,9 @@
 
 #include "trees/treeList.hpp"
 #include <iostream>
+
+using namespace std;
+
 namespace trees {
 
 TreeList::TreeList(): head(nullptr) {
@@ -37,7 +40,7 @@ void TreeList::removeFirst(){
 }
 
 
-void TreeList::remove(int val){
+void TreeList::remove(string val){
 	TreeListNode* ptr = head;
 	TreeListNode* ptr_prev = nullptr;
 	while (ptr != nullptr){
@@ -67,7 +70,7 @@ void TreeList::removeAll(){
 	}
 }
 
-TreeNode* TreeList::find(int val){
+TreeNode* TreeList::find(std::string val){
 	TreeListNode* ptr = head;
 	while ((ptr != nullptr) && ((ptr->getData())->getData() != val)){
 		ptr = ptr->getNext();

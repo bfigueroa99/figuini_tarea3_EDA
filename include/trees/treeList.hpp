@@ -9,6 +9,9 @@
 #define CHILDRENLIST_HPP_
 
 #include "trees/treeListNode.hpp"
+#include <string>
+
+using namespace std;
 
 namespace trees {
 
@@ -22,10 +25,10 @@ public:
 	TreeListNode* getHead();
 	void insertFirst(TreeNode* treeNode);
 	void removeFirst();
-	void remove(int val);
+	void remove(string val);
 	void removeAll();
 	bool isEmpty();
-	TreeNode* find(int val);
+	TreeNode* find(string val);
 	void print();
 	virtual ~TreeList();
 };

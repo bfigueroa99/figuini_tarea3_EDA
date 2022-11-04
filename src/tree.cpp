@@ -25,7 +25,7 @@ void Tree::insert(TreeNode* child, TreeNode* parent){
 	}
 }
 
-void Tree::insert(int val, int val_parent){
+void Tree::insert(string val, string val_parent){
 	TreeNode* parent = find(val_parent);
 	if (parent != nullptr){
 		TreeNode* child = new TreeNode(val);
@@ -34,7 +34,7 @@ void Tree::insert(int val, int val_parent){
 	}
 }
 
-TreeNode* Tree::find_rec(int val, TreeNode* node){
+TreeNode* Tree::find_rec(string val, TreeNode* node){
 	TreeNode* ans = nullptr;
 	if (node != nullptr){
 		if (node->getData() == val){
@@ -52,7 +52,7 @@ TreeNode* Tree::find_rec(int val, TreeNode* node){
 	return ans;
 }
 
-TreeNode* Tree::find(int val){
+TreeNode* Tree::find(string val){
 	TreeNode* ans = find_rec(val, root);
 	return ans;
 }

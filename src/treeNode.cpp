@@ -6,19 +6,21 @@
  */
 
 #include "trees/treeNode.hpp"
+#include <string>
+using namespace std;
 
 namespace trees {
 
-TreeNode::TreeNode(): parent(nullptr), data(-1), children(new TreeList()) {
+TreeNode::TreeNode(): parent(nullptr), data(" "), children(new TreeList()) {
 }
 
-TreeNode::TreeNode(int val): parent(nullptr), data(val), children(new TreeList()) {
+TreeNode::TreeNode(string val): parent(nullptr), data(val), children(new TreeList()) {
 }
 
 void TreeNode::setParent(TreeNode* node){
 	parent = node;
 }
-void TreeNode::setData(int val){
+void TreeNode::setData(string val){
 		data = val;
 }
 void TreeNode::setChildren(TreeList* list){
@@ -27,7 +29,7 @@ void TreeNode::setChildren(TreeList* list){
 TreeNode* TreeNode::getParent(){
 	return parent;
 }
-int TreeNode::getData(){
+string TreeNode::getData(){
 	return data;
 }
 TreeList* TreeNode::getChildren(){
