@@ -39,11 +39,11 @@ int main(int argc, char* argv[]){
             stringstream ss(input);
             vector<string> wordList {istream_iterator<string>(ss), istream_iterator<string>()};
 
-            if(wordList[0] == "mkdir")
+            if(wordList[0] == "mkdir")//
             {
                 mkdir(wordList[1], currentPtr->getData(), tree);
             }
-            else if(wordList[0] == "mkfile")
+            else if(wordList[0] == "mkfile")//
             {
                 if(wordList[1] == ".")
                 {
@@ -64,25 +64,46 @@ int main(int argc, char* argv[]){
             }
             else if(wordList[0] == "cd")
             {
-    
+                trees::TreeList *tmp = currentPtr->getChildren();
+                trees::TreeNode *bunda = nullptr;
+                bunda = tmp->find(wordList[1]);
+                
+                if(wordList[1] == ".." && currentPtr->getParent() != nullptr)
+                {
+                    currentPtr = currentPtr->getParent();
+                }
+                else if(bunda != nullptr && bunda->getIsFile() == 1)
+                {
+                    currentPtr = bunda;
+                }
+                else if(bunda->getIsFile() == 0)
+                {
+                    cout << wordList[1] << " es un archivo, no una carpeta...";
+                }
+                else if(bunda == nullptr)
+                {
+                    cout << wordList[1] << " no esta en esta carpeta...";
+                }
+                
             }
-            else if(wordList[0] == "ls")
+            else if(wordList[0] == "ls")//
             {
                 ls(currentPtr);
             }
             else if(wordList[0] == "rm")
             {
-    
+                trees::TreeNode *tmp = tree->find(wordList[1]);
+                delete tmp;
             }
-            else if(wordList[0] == "tree")
+            else if(wordList[0] == "tree")//
             {
-                treeT(tree, currentPtr);
+                treeT(tree, tree->find(wordList[1]));
             }
             else if(wordList[0] == "find")
             {
     
             }
-            else if(wordList[0] == "exit")
+            else if(wordList[0] == "exit")//
             {
                 break;
             }
@@ -120,33 +141,13 @@ void mkfile(string val, string val_parent, trees::Tree *ptr)
     }
 }
 
-void cd()
-{
-
-}
-
 void ls(trees::TreeNode* current)
 {
     trees::TreeList* bruh = current->getChildren();
     bruh->print();
 }
 
-void rm()
-{
-
-}
-
 void treeT(trees::Tree *ptr, trees::TreeNode *current)
 {
     ptr->traverse_rec(current, 0);
-}
-
-void find()
-{
-
-}
-
-void exit()
-{
-
 }
