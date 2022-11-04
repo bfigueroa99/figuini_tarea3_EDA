@@ -45,7 +45,22 @@ int main(int argc, char* argv[]){
             }
             else if(wordList[0] == "mkfile")
             {
-                mkfile(wordList[2], currentPtr->getData(), tree);
+                if(wordList[1] == ".")
+                {
+                    mkfile(wordList[2], currentPtr->getData(), tree);
+                }
+                else
+                {
+                    stringstream tt(wordList[1]);
+                    string tmp;
+                    vector<string> fileName {istream_iterator<string>(ss), istream_iterator<string>()};
+                    while(getline(tt, tmp, '/'))
+                    {
+                        fileName.push_back(tmp);
+                    }
+
+                    mkdir(wordList[2], fileName.back(), tree);
+                }
             }
             else if(wordList[0] == "cd")
             {
