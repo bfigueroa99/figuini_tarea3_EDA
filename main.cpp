@@ -94,6 +94,7 @@ int main(int argc, char* argv[]){
             else if(wordList[0] == "rm")
             {
                 // if es un archivo eliminar solo el archivo
+                // if find(wordList)->getType()==0?
 
 
                 //else es una carpeta, verificar si hay informacion dentro de la carpeta, borrar primero todo lo que hay adentro y luego borrar la carpeta misma
@@ -102,7 +103,7 @@ int main(int argc, char* argv[]){
             }
             else if(wordList[0] == "tree")//
             {
-                treeT(tree, tree->find(wordList[1])); //despues de un    cd tira segmentancion fault
+                treeT(tree, tree->find(wordList[1])); //despues de un cd tira segmentancion fault
             }
             else if(wordList[0] == "find")
             {
