@@ -5,7 +5,12 @@
  *      Author: jsaavedr
  */
 
-#include "trees/tree.hpp"
+//FIGUE RUTAS
+#include "/home/figue/Documents/Codigos/EDA/Tareas/tarea3/figuini_tarea3_EDA/trees/include/trees/tree.hpp"
+
+//ROMANINI RUTAS 
+
+
 #include <iostream>
 
 namespace trees {

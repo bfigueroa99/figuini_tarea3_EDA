@@ -8,7 +8,10 @@
 #ifndef TREE_HPP_
 #define TREE_HPP_
 
-#include "trees/treeNode.hpp"
+//FIGUE RUTAS
+#include "/home/figue/Documents/Codigos/EDA/Tareas/tarea3/figuini_tarea3_EDA/trees/include/trees/treeNode.hpp"
+
+//ROMANINI RUTAS 
 
 
 namespace trees {

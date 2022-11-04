@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 #add_subdirectory(src)
-#add_subdirectory(tests)
+#add_subdirectory(tests)EDA/Tareas/tarea3/figuini_tarea3_EDA/trees/tests/test.cpp
 
-add_executable(tarea2 main.cpp trees/src/tree.cpp trees/src/treeList.cpp trees/src/treeNode.cpp)
+add_executable(tarea3 main.cpp trees/src/tree.cpp trees/src/treeList.cpp trees/src/treeNode.cpp trees/tests/test.cpp)
 target_include_directories(tarea3 PUBLIC ${PROJECT_SOURCE_DIR}/include)

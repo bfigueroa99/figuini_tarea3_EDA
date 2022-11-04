@@ -8,7 +8,11 @@
 #ifndef CHILDRENLIST_HPP_
 #define CHILDRENLIST_HPP_
 
-#include "trees/treeListNode.hpp"
+
+//FIGUE RUTAS
+#include "/home/figue/Documents/Codigos/EDA/Tareas/tarea3/figuini_tarea3_EDA/trees/include/trees/treeListNode.hpp"
+
+//ROMANINI RUTAS 
 
 namespace trees {
 
