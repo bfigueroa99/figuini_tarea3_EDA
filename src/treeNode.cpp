@@ -21,7 +21,11 @@ void TreeNode::setParent(TreeNode* node){
 	parent = node;
 }
 void TreeNode::setData(string val){
-		data = val;
+	data = val;
+}
+void TreeNode::setIsFile(int n)
+{
+	_isFile = n;
 }
 void TreeNode::setChildren(TreeList* list){
 	children = list;
@@ -31,6 +35,9 @@ TreeNode* TreeNode::getParent(){
 }
 string TreeNode::getData(){
 	return data;
+}
+int TreeNode::getIsFile(){
+	return _isFile;
 }
 TreeList* TreeNode::getChildren(){
 	return children;

@@ -22,8 +22,9 @@ private:
 public:
 	Tree();
 	void setRoot(TreeNode* node);
+	TreeNode* getRoot();
 	void insert(TreeNode* node, TreeNode* parent);
-	void insert(string child, string parent);
+	void insert(string child, string parent, int isFile);
 	TreeNode* find_rec(string val, TreeNode* node);
 	TreeNode* find(string val);
 	void traverse_rec(TreeNode* node, int level);

@@ -21,14 +21,17 @@ private:
 	TreeNode* parent;
 	string data; //data can be of any type
 	TreeList* children;
+	int _isFile;
 public:
 	TreeNode();
 	TreeNode(string val);
 	void setParent(TreeNode* node);
 	void setData(string val);
+	void setIsFile(int n);
 	void setChildren(TreeList* list);
 	TreeNode* getParent();
 	string getData();
+	int getIsFile();
 	TreeList* getChildren();
 	virtual ~TreeNode();
 };

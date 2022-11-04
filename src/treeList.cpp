@@ -85,9 +85,10 @@ bool TreeList::isEmpty(){
 void TreeList::print(){
 	TreeListNode* ptr = head;
 	while (ptr != nullptr){
-		std::cout << ptr->getData()->getData() << " - " <<std::endl;
+		std::cout << ptr->getData()->getData() << "  ";
 		ptr = ptr -> getNext();
 	}
+	cout << endl;
 }
 
 TreeList::~TreeList() {

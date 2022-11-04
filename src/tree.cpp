@@ -18,19 +18,27 @@ void Tree::setRoot(TreeNode* node){
 	if (root == nullptr){
 		root = node;
 	}
+	root->setIsFile(1);
 }
+
+TreeNode* Tree::getRoot()
+{
+	return root;
+}
+
 void Tree::insert(TreeNode* child, TreeNode* parent){
 	if (parent != nullptr){
 		parent->getChildren()->insertFirst(child);
 	}
 }
 
-void Tree::insert(string val, string val_parent){
+void Tree::insert(string val, string val_parent, int isFile){
 	TreeNode* parent = find(val_parent);
 	if (parent != nullptr){
 		TreeNode* child = new TreeNode(val);
+		child->setIsFile(isFile);
 		insert(child, parent);
-		std::cout << "insertado " << val << " in " << val_parent << " at " << parent << std::endl;
+		// std::cout << "insertado " << val << " in " << val_parent << " at " << parent << std::endl;
 	}
 }
 
@@ -61,7 +69,7 @@ TreeNode* Tree::find(string val){
 void Tree::traverse_rec(TreeNode* node, int level){
 	if (node != nullptr){
 		std::cout << std::string(level*2, '-');
-		std::cout<<node->getData() << " at level " << level <<std::endl;
+		std::cout<<node->getData() << std::endl;
 		TreeList* childrenList = node->getChildren();
 		TreeListNode* ptr = childrenList->getHead();
 		while (ptr!=nullptr){
