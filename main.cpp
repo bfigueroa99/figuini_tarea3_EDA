@@ -84,6 +84,7 @@ int main(int argc, char* argv[]){
                 {
                     cout << wordList[1] << " no esta en esta carpeta...";
                 }
+                //else if si no hay hijos que no tire segmentacion fault
                 
             }
             else if(wordList[0] == "ls")//
@@ -97,7 +98,7 @@ int main(int argc, char* argv[]){
             }
             else if(wordList[0] == "tree")//
             {
-                treeT(tree, tree->find(wordList[1]));
+                treeT(tree, tree->find(wordList[1])); //despues de un    cd tira segmentancion fault
             }
             else if(wordList[0] == "find")
             {
